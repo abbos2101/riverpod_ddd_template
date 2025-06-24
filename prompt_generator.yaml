@@ -1,0 +1,15 @@
+needYaml: true
+copyToClipboard: true
+savedFile: ""
+skipFiles: [
+  '.freezed.dart',
+  '.g.dart',
+  '.res.dart',
+  '.config.dart',
+  '/.',
+]
+includePaths: [
+  lib/application,
+  lib/domain,
+  lib/infrastructure,
+]
