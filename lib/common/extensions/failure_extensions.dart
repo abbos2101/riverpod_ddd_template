@@ -52,10 +52,7 @@ void printErrorInfo(dynamic e) {
         .where((e) => e.contains(info.$1) && !e.contains(info.$2));
     if (tree.isNotEmpty) {
       var path = tree.first;
-      path = path.substring(
-        path.indexOf(AppEnv.packageName),
-        path.length - 1,
-      );
+      path = path.substring(path.indexOf(AppEnv.packageName), path.length - 1);
       print('==> Failure File Path: $path');
     }
     print('==> Failure Text: $e');

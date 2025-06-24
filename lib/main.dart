@@ -1,11 +1,31 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:riverpod_ddd_template/common/constants/app_env.dart';
+import 'package:riverpod_ddd_template/presentation/routes/app_router.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await AppEnv.init();
+import 'common/widgets/app.dart';
+import 'config.dart';
 
-  runApp(const MyApp());
+void main() {
+  runZonedGuarded(
+    () async {
+      await setupConfigs();
+
+      runApp(
+        const App(
+          localesPath: "assets/tr",
+          supportedLocales: [Locale('uz-UZ')],
+          child: MyApp(),
+        ),
+      );
+    },
+    (error, stack) {
+      // if need crashlytics
+      // FirebaseCrashlytics.instance.recordError(error, stack);
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,13 +33,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: AppEnv.appName,
       debugShowCheckedModeBanner: AppEnv.debugMode,
+      routerConfig: router.config(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Scaffold(),
+      builder: EasyLoading.init(),
     );
   }
 }

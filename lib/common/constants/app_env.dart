@@ -8,12 +8,15 @@ abstract class AppEnv {
     await dotenv.load(fileName: ".env.$env");
   }
 
-  static String get baseUrl => dotenv.env['BASE_URL'] ?? '';
-
   static String get appName => dotenv.env['APP_NAME'] ?? '';
 
   static String get packageName => dotenv.env['PACKAGE_NAME'] ?? '';
 
+  static String get baseUrl => dotenv.env['BASE_URL'] ?? '';
+
   static bool get debugMode =>
       bool.tryParse(dotenv.env['DEBUG_MODE'] ?? 'false') ?? false;
+
+  static bool get onlyPortrait =>
+      bool.tryParse(dotenv.env['ONLY_PORTRAIT'] ?? 'false') ?? false;
 }
