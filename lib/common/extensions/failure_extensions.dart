@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_ddd_template/common/constants/app_env.dart';
 import 'package:riverpod_ddd_template/common/localization/localization.dart';
 
+import 'show_snackbar.dart';
+
 String getError(dynamic e) {
   printErrorInfo(e);
   if (e is DioException) {
@@ -29,19 +31,7 @@ String getError(dynamic e) {
 }
 
 void showError(BuildContext context, dynamic e) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      backgroundColor: Colors.red,
-      content: Text(
-        getError(e),
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    ),
-  );
+  showSnackBar(context, message: getError(e), type: SnackBarType.error);
 }
 
 void printErrorInfo(dynamic e) {

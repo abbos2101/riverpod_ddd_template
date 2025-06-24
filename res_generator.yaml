@@ -3,9 +3,9 @@ words:
   class_directory: lib/common/localization/
   class_file: localization.dart
   class_name: Words
-  supported_locales: [ 'uz_UZ' ]
-  translated_locales: [ 'uz_UZ' ]
-  target_locale: 'uz_UZ'
+  supported_locales: [ 'uz-UZ' ]
+  translated_locales: [ 'uz-UZ' ]
+  target_locale: 'uz-UZ'
 
 icons:
   assets_directory: assets/icons/

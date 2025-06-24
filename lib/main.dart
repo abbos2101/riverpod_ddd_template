@@ -8,6 +8,8 @@ import 'package:riverpod_ddd_template/application/notifiers/locale_notifier.dart
 import 'package:riverpod_ddd_template/common/constants/app_env.dart';
 import 'package:riverpod_ddd_template/presentation/routes/app_router.dart';
 
+import 'application/notifiers/theme_notifier.dart';
+import 'common/theme/themes.dart';
 import 'common/widgets/app.dart';
 import 'config.dart';
 
@@ -25,7 +27,7 @@ void main() {
       );
     },
     (error, stack) {
-      // if need crashlytics
+      // if you need crashlytics
       // FirebaseCrashlytics.instance.recordError(error, stack);
     },
   );
@@ -37,15 +39,16 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final localeAsync = ref.watch(localeNotifierProvider);
+    final themeAsync = ref.watch(themeNotifierProvider);
 
     return MaterialApp.router(
       title: AppEnv.appName,
       debugShowCheckedModeBanner: AppEnv.debugMode,
       routerConfig: router.config(),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
       builder: EasyLoading.init(),
+      theme: AppTheme.theme(Brightness.light),
+      darkTheme: AppTheme.theme(Brightness.dark),
+      themeMode: themeAsync.whenOrNull() ?? ThemeMode.system,
       locale: localeAsync.whenOrNull() ?? context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
