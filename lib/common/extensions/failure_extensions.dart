@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_ddd_template/common/constants/app_env.dart';
 import 'package:riverpod_ddd_template/common/localization/localization.dart';
 
-import 'show_snackbar.dart';
+import 'feedback_helpers.dart';
 
 String getError(dynamic e) {
   printErrorInfo(e);

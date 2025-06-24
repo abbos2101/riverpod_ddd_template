@@ -9,9 +9,6 @@ skipFiles: [
   '/.',
 ]
 includePaths: [
-  lib/application,
-  lib/infrastructure,
-  lib/common/localization,
-  lib/common/theme,
-  lib/main.dart,
+  lib/common/extensions/dialog_extensions.dart,
+    lib/common/extensions/show_snackbar.dart
 ]
