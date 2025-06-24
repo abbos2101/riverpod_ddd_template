@@ -9,7 +9,8 @@ skipFiles: [
   '/.',
 ]
 includePaths: [
-  lib/application,
-  lib/domain,
-  lib/infrastructure,
+#  lib/application/,
+#  lib/common/widgets/app.dart,
+#  lib/main.dart
+  lib/common/theme,
 ]
