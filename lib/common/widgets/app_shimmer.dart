@@ -17,10 +17,12 @@ class AppShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     if (enabled) {
       return Shimmer.fromColors(
-        baseColor: baseColor ?? Colors.grey[200]!,
-        highlightColor: highlightColor ?? Colors.white,
+        baseColor: baseColor ?? colorScheme.surfaceContainerHighest,
+        highlightColor: highlightColor ?? colorScheme.surface,
         child: child,
       );
     }

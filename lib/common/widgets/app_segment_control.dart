@@ -19,11 +19,13 @@ class AppSegmentControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       width: width,
       padding: EdgeInsets.all(fontSize * 0.3),
       decoration: ShapeDecoration(
-        color: const Color(0x7FD3D6E0),
+        color: colorScheme.surfaceContainerHighest.withAlpha(120),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       child: CupertinoSlidingSegmentedControl<int>(

@@ -26,15 +26,19 @@ class AppRefresh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return SmartRefresher(
       controller: controller,
       physics: physics ?? const ClampingScrollPhysics(),
       header:
           header ??
-          const WaterDropHeader(
-            complete: Icon(Icons.check, color: Colors.grey),
-            refresh: CupertinoActivityIndicator(color: Colors.grey),
-            failed: Icon(Icons.close, color: Colors.grey),
+          WaterDropHeader(
+            complete: Icon(Icons.check, color: colorScheme.primary),
+            refresh: CupertinoActivityIndicator(
+              color: colorScheme.onSurfaceVariant,
+            ),
+            failed: Icon(Icons.close, color: colorScheme.error),
           ),
       enablePullDown: enabledRefresh,
       enablePullUp: enabledNext,

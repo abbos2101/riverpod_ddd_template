@@ -71,6 +71,8 @@ class AppImageLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return SizedBox(
       width: width,
       height: height,
@@ -84,7 +86,7 @@ class AppImageLoading extends StatelessWidget {
             Center(
               child: CircularProgressIndicator(
                 value: progress,
-                color: Colors.grey[300],
+                color: colorScheme.primary.withAlpha(150),
                 strokeWidth: 3,
               ),
             ),
@@ -96,7 +98,7 @@ class AppImageLoading extends StatelessWidget {
                 fractionDigits: 0,
                 suffix: "%",
                 textStyle: TextStyle(
-                  color: Colors.grey[600],
+                  color: colorScheme.onSurfaceVariant,
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                 ),
@@ -117,14 +119,16 @@ class AppImageError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return SizedBox(
       width: width,
       height: height,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: colorScheme.surface.withAlpha(120),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.grey[300]!, width: 1),
+          border: Border.all(color: colorScheme.outlineVariant, width: 1),
         ),
         child: Column(
           spacing: 4,
@@ -133,12 +137,15 @@ class AppImageError extends StatelessWidget {
             Icon(
               Icons.broken_image_outlined,
               size: 40,
-              color: Colors.grey[400],
+              color: colorScheme.onSurfaceVariant,
             ),
             if (error != null)
               Text(
                 error!,
-                style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                style: TextStyle(
+                  color: colorScheme.onSurfaceVariant,
+                  fontSize: 12,
+                ),
               ),
           ],
         ),
