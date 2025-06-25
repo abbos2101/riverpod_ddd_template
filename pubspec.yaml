@@ -12,8 +12,8 @@ dependencies:
   animated_flip_counter: ^0.3.4
   auto_route: ^10.1.0+1
   cached_network_image: ^3.4.1
+  connectivity_plus: ^6.1.4
   cupertino_icons: ^1.0.8
-  #  device_frame_plus: ^1.5.0 # If you need to test different screens
   dio: ^5.8.0+1
   easy_localization: ^3.0.7+1
   flutter_dotenv: ^5.2.1
@@ -22,9 +22,14 @@ dependencies:
   flutter_riverpod: ^2.6.1
   flutter_secure_storage: ^9.2.4
   flutter_svg: ^2.2.0
+  fluttertoast: ^8.2.12
+  freezed_annotation: ^3.0.0
   google_fonts: ^6.2.1
   hive_ce: ^2.11.3
   image_picker: ^1.1.2 # Should add configuration to android and ios
+  internet_connection_checker_plus: ^2.7.2
+  json_annotation: ^4.9.0
+  package_info_plus: ^8.3.0
   path: ^1.9.1
   path_provider: ^2.1.4
   pull_to_refresh: ^2.0.0
@@ -54,3 +59,5 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/tr/
+    - .env.dev
+    - .env.prod

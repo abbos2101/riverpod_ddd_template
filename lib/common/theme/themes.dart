@@ -12,21 +12,25 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       fontFamily: GoogleFonts.inter().fontFamily,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: colorScheme.primary,
+      colorScheme: ColorScheme(
         brightness: brightness,
         primary: colorScheme.primary,
         secondary: colorScheme.secondary,
         error: colorScheme.error,
-        background: colorScheme.background,
         surface: colorScheme.surface,
         onPrimary: colorScheme.onPrimary,
         onSecondary: colorScheme.onSecondary,
         onError: colorScheme.onError,
-        onBackground: colorScheme.onBackground,
         onSurface: colorScheme.onSurface,
+        outline: colorScheme.border,
         shadow: colorScheme.shadow,
+        onSurfaceVariant: colorScheme.hint,
+        outlineVariant: colorScheme.divider,
       ),
+      shadowColor: colorScheme.shadow,
+      hintColor: colorScheme.hint,
+      dividerColor: colorScheme.divider,
+      disabledColor: colorScheme.disabled,
     );
   }
 }

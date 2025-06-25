@@ -1,7 +1,7 @@
 words:
   assets_directory: assets/tr/
-  class_directory: lib/common/localization/
-  class_file: localization.dart
+  class_directory: lib/common/words/
+  class_file: words.dart
   class_name: Words
   supported_locales: [ 'uz-UZ' ]
   translated_locales: [ 'uz-UZ' ]

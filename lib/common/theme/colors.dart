@@ -8,8 +8,6 @@ mixin AppColorScheme {
 
   Color get error;
 
-  Color get background;
-
   Color get surface;
 
   Color get onPrimary;
@@ -17,8 +15,6 @@ mixin AppColorScheme {
   Color get onSecondary;
 
   Color get onError;
-
-  Color get onBackground;
 
   Color get onSurface;
 
@@ -54,9 +50,6 @@ class LightColorScheme implements AppColorScheme {
   Color get error => const Color(0xFFE53935);
 
   @override
-  Color get background => const Color(0xFFFFFFFF);
-
-  @override
   Color get surface => const Color(0xFFFFFFFF);
 
   @override
@@ -67,9 +60,6 @@ class LightColorScheme implements AppColorScheme {
 
   @override
   Color get onError => Colors.white;
-
-  @override
-  Color get onBackground => const Color(0xFF000000);
 
   @override
   Color get onSurface => const Color(0xFF000000);
@@ -112,9 +102,6 @@ class DarkColorScheme implements AppColorScheme {
   Color get error => const Color(0xFFEF5350);
 
   @override
-  Color get background => const Color(0xFF1E1E1E);
-
-  @override
   Color get surface => const Color(0xFF2D2D2D);
 
   @override
@@ -125,9 +112,6 @@ class DarkColorScheme implements AppColorScheme {
 
   @override
   Color get onError => Colors.white;
-
-  @override
-  Color get onBackground => const Color(0xFFFFFFFF);
 
   @override
   Color get onSurface => const Color(0xFFFFFFFF);

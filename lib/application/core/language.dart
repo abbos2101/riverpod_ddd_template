@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_ddd_template/infrastructure/services/cache/app_cache.dart';
 
-part 'locale_notifier.g.dart';
+part 'language.g.dart';
 
 @riverpod
-class LocaleNotifier extends _$LocaleNotifier {
+class Language extends _$Language {
   @override
   Future<Locale> build() async {
     final appCache = await ref.watch(appCacheProvider.future);

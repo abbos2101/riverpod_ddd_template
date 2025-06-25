@@ -2,9 +2,16 @@
 
 .PHONY: clean fix-ios fix-ios-clean gen-clean gen fix fmt build-apk-dev build-apk-prod run-dev run-prod res translate prompt add-all add-android add-ios add-web
 
+# Load environment variables from .env.dev file
+ifneq (,$(wildcard .env.dev))
+    include .env.dev
+    export
+endif
+
 # Variables
 PACKAGE_NAME = $(shell grep '^name:' pubspec.yaml | awk '{print $2}' | tr -d '[:space:]')
-ORG_NAME = uz.abbos
+# Use ORGANIZATION_DOMAIN from .env.dev, fallback to default if not set
+ORG_NAME = $(if $(ORGANIZATION_DOMAIN),$(ORGANIZATION_DOMAIN),uz.abbos)
 
 # Basic cleanup
 clean:
@@ -52,13 +59,13 @@ fmt:
 build-apk-dev:
 	flutter clean
 	flutter build apk --dart-define=ENVIRONMENT=dev --release
-	mv ./build/app/outputs/flutter-apk/app-release.apk "./build/app/outputs/flutter-apk/$(PACKAGE_NAME)_$(date +%d.%m.%Y).apk"
+	mv ./build/app/outputs/flutter-apk/app-release.apk "./build/app/outputs/flutter-apk/$(PACKAGE_NAME)_$(shell date +%d.%m.%Y).apk"
 	open ./build/app/outputs/flutter-apk/
 
 build-apk-prod:
 	flutter clean
 	flutter build apk --dart-define=ENVIRONMENT=prod --release
-	mv ./build/app/outputs/flutter-apk/app-release.apk "./build/app/outputs/flutter-apk/$(PACKAGE_NAME)_$(date +%d.%m.%Y).apk"
+	mv ./build/app/outputs/flutter-apk/app-release.apk "./build/app/outputs/flutter-apk/$(PACKAGE_NAME)_$(shell date +%d.%m.%Y).apk"
 	open ./build/app/outputs/flutter-apk/
 
 # Run configurations
@@ -90,3 +97,10 @@ translate:
 
 prompt:
 	dart run prompt_generator:generate
+
+# Debug: Show loaded environment variables
+debug-env:
+	@echo "ORGANIZATION_DOMAIN: $(ORGANIZATION_DOMAIN)"
+	@echo "ORG_NAME: $(ORG_NAME)"
+	@echo "APP_NAME: $(APP_NAME)"
+	@echo "BASE_URL: $(BASE_URL)"

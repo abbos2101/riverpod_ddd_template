@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_ddd_template/infrastructure/services/cache/app_cache.dart';
 
-part 'theme_notifier.g.dart';
+part 'theme.g.dart';
 
 @riverpod
-class ThemeNotifier extends _$ThemeNotifier {
+class Theme extends _$Theme {
   @override
   Future<ThemeMode> build() async {
     final appCache = await ref.watch(appCacheProvider.future);
