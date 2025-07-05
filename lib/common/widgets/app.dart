@@ -17,14 +17,18 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: supportedLocales,
-      path: localesPath,
-      fallbackLocale: supportedLocales.first,
-      startLocale: supportedLocales.first,
-      useOnlyLangCode: supportedLocales.first.countryCode == null,
-      saveLocale: true,
-      child: child,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(), // hide keyboard
+      behavior: HitTestBehavior.translucent,
+      child: EasyLocalization(
+        supportedLocales: supportedLocales,
+        path: localesPath,
+        fallbackLocale: supportedLocales.first,
+        startLocale: supportedLocales.first,
+        useOnlyLangCode: supportedLocales.first.countryCode == null,
+        saveLocale: true,
+        child: child,
+      ),
     );
   }
 }

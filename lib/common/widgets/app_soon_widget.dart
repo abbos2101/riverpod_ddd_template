@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:riverpod_ddd_template/common/localization/localization.dart';
+import 'package:riverpod_ddd_template/common/words/words.dart';
 
 class AppSoonWidget extends StatelessWidget {
   final bool showBanner;
